@@ -4,7 +4,7 @@
 Devenir la référence mondiale de l'extension matérielle pour MacBook Pro en résolvant définitivement le problème du stockage soudé et coûteux d'Apple, tout en conservant l'élégance du design original.
 
 ## 2. Le Produit : Aurad0ck 4x
-- **Format :** Coque inférieure de remplacement ou sur-coque clipsable.
+- **Format :** Coque inférieure clipsable.
 - **Stockage :** 4 slots M.2 NVMe (supportant jusqu'à 32To de stockage total).
 - **Contrôleur :** PCIe Switch haute performance intégré.
 - **Connectique :** 2x connecteurs USB-C/Thunderbolt intégrés pour un débit maximal et stabilité physique.
@@ -16,7 +16,7 @@ Devenir la référence mondiale de l'extension matérielle pour MacBook Pro en r
 - **Opportunité :** Proposer 4To pour le prix de 512Go chez Apple.
 
 ## 4. Stratégie de Lancement (Kickstarter)
-- **Objectif de financement :** $100,000 (Moulage CNC initial + premier batch de PCB).
+- **Objectif de financement :** $200,000 (Moulage CNC initial + premier batch de PCB).
 - **Early Bird :** $199 (Base nue sans SSD).
 - **Packs SSD :** Partenariat potentiel avec un fabricant (Crucial/Samsung) pour proposer des packs prêts à l'emploi.
 
