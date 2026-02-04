@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurad0ck — The Invisible Bottom Shell for MacBook Pro</title>
+    <title>Aurad0ck — The 3D Printed Expansion Shell</title>
     <style>
         :root {
-            --bg-color: #000000;
-            --text-color: #f5f5f7;
-            --accent-color: #0071e3;
-            --gray-text: #86868b;
-            --card-bg: #161617;
+            --bg-color: #0d0d0d;
+            --text-color: #e0e0e0;
+            --accent-color: #ff3b30; /* Red for Maker/Pro vibe or keep Blue? Let's go Orange/Red for "3D Print" vibe */
+            --accent-color: #0071e3; /* Stick to Apple Blue for now */
+            --gray-text: #888;
+            --card-bg: #1a1a1a;
         }
         body {
             font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -22,20 +23,20 @@
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         nav {
-            height: 52px; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px);
+            height: 52px; background: rgba(13,13,13,0.8); backdrop-filter: blur(20px);
             position: sticky; top: 0; z-index: 999; border-bottom: 1px solid #333;
             display: flex; align-items: center; justify-content: space-between;
         }
-        nav .logo { font-weight: 600; font-size: 21px; }
+        nav .logo { font-weight: 700; font-size: 21px; letter-spacing: -0.5px; }
         
         header { padding-top: 80px; text-align: center; min-height: 80vh; }
-        h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 600; margin-bottom: 0; letter-spacing: -0.015em; }
+        h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 700; margin-bottom: 0; letter-spacing: -0.02em; }
         .hero-tagline { font-size: clamp(20px, 4vw, 32px); font-weight: 500; color: var(--text-color); margin-top: 10px; }
         
         .hero-image-container { margin-top: 60px; position: relative; }
-        .hero-image { width: 100%; max-width: 1000px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); }
+        .hero-image { width: 100%; max-width: 1000px; border-radius: 20px; border: 1px solid #333; }
 
-        .section { padding: 100px 0; border-bottom: 1px solid #1d1d1f; }
+        .section { padding: 100px 0; border-bottom: 1px solid #222; }
         .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .feature-title { font-size: 48px; font-weight: 600; line-height: 1.1; margin-bottom: 20px; }
         .feature-desc { font-size: 21px; color: var(--gray-text); line-height: 1.5; }
@@ -46,9 +47,6 @@
         
         .lang-switch { font-size: 12px; color: var(--gray-text); }
         [data-i18n] { transition: opacity 0.2s; }
-
-        .technical-img { width: 100%; border-radius: 20px; margin-top: 40px; border: 1px solid #333; }
-        .full-width-img { width: 100%; height: auto; border-radius: 30px; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -60,145 +58,98 @@
     </nav>
 
     <header class="container">
-        <p style="color: var(--accent-color); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 10px;" data-i18n="hero_pre">PROJECT AURAD0CK</p>
-        <h1 data-i18n="hero_title">Le stockage. Invisible.</h1>
-        <p class="hero-tagline" data-i18n="hero_tagline">Coque active 4x NVMe pour MacBook Pro.</p>
+        <p style="color: var(--accent-color); font-weight: 700; letter-spacing: 0.1em; margin-bottom: 10px;" data-i18n="hero_pre">AURAD0CK PRINT EDITION</p>
+        <h1 data-i18n="hero_title">Le stockage. Imprimé.</h1>
+        <p class="hero-tagline" data-i18n="hero_tagline">Coque SLS clipsable 4x NVMe. Double connexion.</p>
         <div class="hero-image-container">
-            <img src="aurad0ck-perfect-integration.png" alt="Aurad0ck Integration" class="hero-image">
+            <img src="aurad0ck-3d-hero.png" alt="Aurad0ck 3D Printed" class="hero-image">
         </div>
     </header>
 
     <section class="section container">
         <div class="feature-grid">
             <div>
-                <h2 class="feature-title" data-i18n="feat1_title">Une seconde peau thermique.</h2>
-                <p class="feature-desc" data-i18n="feat1_desc">Plus qu'une coque, Aurad0ck remplace votre base originale. Conçue en aluminium aéronautique, elle agit comme un dissipateur géant pour vos 4 SSD et votre Mac.</p>
+                <h2 class="feature-title" data-i18n="feat1_title">Dual Link.</h2>
+                <p class="feature-desc" data-i18n="feat1_desc">Stabilité maximale. Aurad0ck se connecte des deux côtés de votre MacBook Pro pour une tenue parfaite et une bande passante doublée. Clipsable comme une coque de protection classique.</p>
             </div>
-            <div>
-                <img src="aurad0ck-technical-view.png" alt="Vue Technique" class="technical-img">
+            <div class="hero-image-container" style="margin-top: 0;">
+                 <img src="aurad0ck-3d-dual.png" alt="Dual Connectors" class="hero-image">
             </div>
-        </div>
-    </section>
-
-    <section class="section container">
-        <h2 class="feature-title" style="text-align:center;" data-i18n="versions_title">Choisissez votre performance.</h2>
-        <div class="specs-grid" id="product-grid">
-            <!-- Dynamic product cards -->
         </div>
     </section>
 
     <section class="section container" style="text-align:center;">
-        <h2 class="feature-title" data-i18n="specs_title">Spécifications de classe mondiale.</h2>
+        <h2 class="feature-title" data-i18n="specs_title">Spécifications Next-Gen.</h2>
         <div class="specs-grid">
             <div class="spec-card">
                 <span class="spec-val">4x</span>
                 <span class="spec-label" data-i18n="spec_slots">Slots M.2 NVMe</span>
             </div>
             <div class="spec-card">
-                <span class="spec-val">0mm</span>
-                <span class="spec-label" data-i18n="spec_cables">Câbles externes</span>
+                <span class="spec-val">SLS</span>
+                <span class="spec-label" data-i18n="spec_material">Nylon PA12 Premium</span>
             </div>
             <div class="spec-card">
-                <span class="spec-val">CNC</span>
-                <span class="spec-label" data-i18n="spec_material">Aluminium massif</span>
+                <span class="spec-val">2x</span>
+                <span class="spec-label" data-i18n="spec_conn">Ponts USB-C Latéraux</span>
             </div>
         </div>
-        <img src="aurad0ck-v2-4slots.png" alt="Aurad0ck V2" class="full-width-img">
     </section>
 
     <script>
         const translations = {
             fr: {
-                hero_pre: "PROJET AURAD0CK",
-                hero_title: "Le stockage. Invisible.",
-                hero_tagline: "Coque active 4x NVMe pour MacBook Pro.",
-                feat1_title: "Une seconde peau thermique.",
-                feat1_desc: "Plus qu'une coque, Aurad0ck remplace votre base originale. Conçue en aluminium aéronautique, elle agit comme un dissipateur géant pour vos 4 SSD et votre Mac.",
-                versions_title: "Choisissez votre performance.",
-                specs_title: "Spécifications de classe mondiale.",
+                hero_pre: "AURAD0CK PRINT EDITION",
+                hero_title: "Le stockage. Imprimé.",
+                hero_tagline: "Coque SLS clipsable 4x NVMe. Double connexion.",
+                feat1_title: "Dual Link.",
+                feat1_desc: "Stabilité maximale. Aurad0ck se connecte des deux côtés de votre MacBook Pro pour une tenue parfaite. Clipsable comme une coque classique.",
+                specs_title: "Spécifications Next-Gen.",
                 spec_slots: "Slots M.2 NVMe",
-                spec_cables: "Câbles externes",
-                spec_material: "Aluminium massif"
+                spec_material: "Nylon PA12 Premium",
+                spec_conn: "Ponts USB-C Latéraux"
             },
             en: {
-                hero_pre: "PROJECT AURAD0CK",
-                hero_title: "Storage. Invisible.",
-                hero_tagline: "4x NVMe Active Shell for MacBook Pro.",
-                feat1_title: "A Thermal Second Skin.",
-                feat1_desc: "More than a case, Aurad0ck replaces your original base. Machined from aerospace-grade aluminum, it acts as a giant heatsink for your 4 SSDs and your Mac.",
-                versions_title: "Choose your performance.",
-                specs_title: "World-class Specifications.",
+                hero_pre: "AURAD0CK PRINT EDITION",
+                hero_title: "Storage. Printed.",
+                hero_tagline: "Snap-on SLS Shell 4x NVMe. Dual Link.",
+                feat1_title: "Dual Link.",
+                feat1_desc: "Maximum stability. Aurad0ck connects on both sides of your MacBook Pro for perfect hold. Snaps on like a classic protective shell.",
+                specs_title: "Next-Gen Specs.",
                 spec_slots: "M.2 NVMe Slots",
-                spec_cables: "External Cables",
-                spec_material: "Solid Aluminum"
+                spec_material: "Premium PA12 Nylon",
+                spec_conn: "Dual Side USB-C Bridges"
             },
             es: {
-                hero_pre: "PROYECTO AURAD0CK",
-                hero_title: "Almacenamiento. Invisible.",
-                hero_tagline: "Carcasa activa 4x NVMe para MacBook Pro.",
-                feat1_title: "Una segunda piel térmica.",
-                feat1_desc: "Más que una carcasa, Aurad0ck reemplaza su base original. Diseñada en aluminio aeronáutico, actúa como un disipador gigante para sus 4 SSD y su Mac.",
-                versions_title: "Elija su rendimiento.",
-                specs_title: "Especificaciones de clase mundial.",
+                hero_pre: "AURAD0CK PRINT EDITION",
+                hero_title: "Almacenamiento. Impreso.",
+                hero_tagline: "Carcasa SLS acoplable 4x NVMe. Doble conexión.",
+                feat1_title: "Dual Link.",
+                feat1_desc: "Estabilidad máxima. Aurad0ck se conecta a ambos lados de su MacBook Pro. Se acopla como una funda protectora clásica.",
+                specs_title: "Especificaciones Next-Gen.",
                 spec_slots: "Ranuras M.2 NVMe",
-                spec_cables: "Cables externos",
-                spec_material: "Aluminio macizo"
+                spec_material: "Nylon PA12 Premium",
+                spec_conn: "Puentes USB-C Laterales"
             },
             pt: {
-                hero_pre: "PROJETO AURAD0CK",
-                hero_title: "Armazenamento. Invisível.",
-                hero_tagline: "Capa ativa 4x NVMe para MacBook Pro.",
-                feat1_title: "Uma segunda pele térmica.",
-                feat1_desc: "Mais do que uma capa, a Aurad0ck substitui a sua base original. Fabricada em alumínio aeronáutico, funciona como um dissipador gigante para os seus 4 SSDs e para o seu Mac.",
-                versions_title: "Escolha o seu desempenho.",
-                specs_title: "Especificações de classe mundial.",
+                hero_pre: "AURAD0CK PRINT EDITION",
+                hero_title: "Armazenamento. Impresso.",
+                hero_tagline: "Capa SLS de encaixe 4x NVMe. Conexão dupla.",
+                feat1_title: "Dual Link.",
+                feat1_desc: "Estabilidade máxima. Aurad0ck conecta-se em ambos os lados do seu MacBook Pro. Encaixa como uma capa protetora clássica.",
+                specs_title: "Especificações Next-Gen.",
                 spec_slots: "Slots M.2 NVMe",
-                spec_cables: "Cabos externos",
-                spec_material: "Alumínio maciço"
+                spec_material: "Nylon PA12 Premium",
+                spec_conn: "Pontes USB-C Laterais"
             }
         };
 
-        const products = [
-            {
-                id: "silent",
-                name: "Aurad0ck Silent",
-                desc_fr: "Dissipation 100% passive via ailettes CNC. Silence absolu.",
-                desc_en: "100% passive dissipation via CNC fins. Absolute silence.",
-                desc_es: "Disipación 100% pasiva mediante aletas CNC. Silencio absoluto.",
-                desc_pt: "Dissipação 100% passiva através de aletas CNC. Silêncio absoluto."
-            },
-            {
-                id: "extreme",
-                name: "Aurad0ck Extreme",
-                desc_fr: "Refroidissement actif intelligent. Conçu pour le rendu 8K intensif.",
-                desc_en: "Smart active cooling. Built for intensive 8K rendering.",
-                desc_es: "Refrigeración activa inteligente. Diseñado para renderizado 8K intensivo.",
-                desc_pt: "Arrefecimento ativo inteligente. Construído para renderização 8K intensiva."
-            }
-        ];
-
-        function setLanguage(lang) {
-            const t = translations[lang] || translations.en;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                el.innerText = t[key];
-            });
-            document.getElementById('lang-display').innerText = lang.toUpperCase();
-            
-            // Update product cards
-            const productGrid = document.getElementById('product-grid');
-            if(productGrid) {
-                productGrid.innerHTML = products.map(p => `
-                    <div class="spec-card">
-                        <span class="spec-val" style="font-size: 24px; color: white;">${p.name}</span>
-                        <p style="color: var(--gray-text); font-size: 16px; line-height: 1.4;">${p['desc_' + lang] || p.desc_en}</p>
-                    </div>
-                `).join('');
-            }
-        }
-
         const userLang = navigator.language.substring(0, 2);
-        setLanguage(translations[userLang] ? userLang : 'en');
+        const t = translations[userLang] || translations.en;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            el.innerText = t[el.getAttribute('data-i18n')];
+        });
+        document.getElementById('lang-display').innerText = (userLang || 'EN').toUpperCase();
     </script>
 </body>
 </html>
