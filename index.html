@@ -3,97 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurad0ck - Integrated MacBook Expansion</title>
+    <title>Aurad0ck — L'extension de stockage ultime pour MacBook Pro</title>
     <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #f5f5f7;
+            --accent-color: #0071e3;
+            --gray-text: #86868b;
+            --card-bg: #161617;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
+            font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            height: 52px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav .logo { font-weight: 600; font-size: 21px; }
+        
         header {
-            padding: 80px 20px;
-            max-width: 800px;
+            padding-top: 100px;
+            text-align: center;
+            min-height: 90vh;
         }
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            letter-spacing: -2px;
+        h1 { font-size: 80px; font-weight: 600; margin-bottom: 0; letter-spacing: -0.015em; }
+        .hero-tagline { font-size: 32px; font-weight: 500; color: var(--text-color); margin-top: 10px; }
+        .hero-price { font-size: 24px; color: var(--gray-text); margin-top: 20px; }
+        
+        .hero-image-container {
+            margin-top: 60px;
+            position: relative;
         }
-        .tagline {
-            font-size: 1.5rem;
-            color: #888;
-            margin-bottom: 40px;
-        }
-        .hero-img {
-            width: 80%;
-            height: 400px;
-            background: linear-gradient(145deg, #1a1a1a, #333);
-            border-radius: 20px;
-            margin-bottom: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #444;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 40px;
+        .hero-image {
+            width: 100%;
             max-width: 1000px;
-        }
-        .feature-card {
-            background: #111;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #222;
-        }
-        .feature-card h3 {
-            color: #0071e3;
-        }
-        .cta {
-            background: #0071e3;
-            color: white;
-            padding: 15px 30px;
             border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .section {
+            padding: 150px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .feature-title { font-size: 48px; font-weight: 600; line-height: 1.1; margin-bottom: 20px; }
+        .feature-desc { font-size: 21px; color: var(--gray-text); line-height: 1.5; }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+        }
+        .spec-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: left;
+        }
+        .spec-val { font-size: 40px; font-weight: 600; color: var(--accent-color); display: block; margin-bottom: 10px; }
+        .spec-label { font-size: 18px; font-weight: 500; }
+
+        .cta-section {
+            background: #111;
+            padding: 100px 0;
+            text-align: center;
+            border-radius: 40px;
+            margin: 100px 20px;
+        }
+        .btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 980px;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 40px;
-            margin-bottom: 100px;
+            font-size: 21px;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn:hover { transform: scale(1.05); }
+
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid #333;
+            color: var(--gray-text);
+            font-size: 12px;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Aurad0ck</h1>
-        <p class="tagline">L'extension de stockage invisible pour MacBook Pro.</p>
+    <nav>
+        <div class="container" style="display:flex; justify-content:space-between; width:100%;">
+            <span class="logo">Aurad0ck</span>
+            <div style="font-size: 12px; opacity: 0.8;">Bientôt sur Kickstarter</div>
+        </div>
+    </nav>
+
+    <header class="container">
+        <p style="color: #f5f5f7; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 10px;">PROJET AURAD0CK</p>
+        <h1>Le stockage. Sans limites.</h1>
+        <p class="hero-tagline">4 slots NVMe. Jusqu'à 32To. Design invisible.</p>
+        <p class="hero-price">À partir de 199$ en Early Bird.</p>
+        <div class="hero-image-container">
+            <img src="aurad0ck-v2-4slots.png" alt="Aurad0ck 4x NVMe" class="hero-image">
+        </div>
     </header>
 
-    <div class="hero-img">
-        <p>[Image Concept: MacBook Pro with an integrated aluminum bottom base containing NVMe & 2.5" SSD slots]</p>
-    </div>
-
-    <section class="features">
-        <div class="feature-card">
-            <h3>Design Intégré</h3>
-            <p>Une coque inférieure en aluminium CNC qui s'adapte parfaitement à votre MacBook Pro.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Double Stockage</h3>
-            <p>Support NVMe ultra-rapide et baie SSD 2.5" pour une capacité massive.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Connectique Flush</h3>
-            <p>Connexion directe via les ports USB-C latéraux sans câbles encombrants.</p>
+    <section class="section container">
+        <div class="grid">
+            <div>
+                <h2 class="feature-title">Oubliez les disques qui pendent.</h2>
+                <p class="feature-desc">Aurad0ck se clipse directement sous votre MacBook Pro. Pas de câbles encombrants, pas de risques de déconnexion accidentelle. Votre Mac reste un ordinateur portable, avec la capacité d'un serveur.</p>
+            </div>
+            <div style="background: var(--card-bg); height: 400px; border-radius: 30px; display: flex; align-items: center; justify-content: center;">
+                <img src="aurad0ck-hero.png" alt="Détail design" style="height:80%; border-radius:15px;">
+            </div>
         </div>
     </section>
 
-    <a href="#" class="cta">Bientôt sur Kickstarter</a>
+    <section class="section container" style="text-align:center;">
+        <h2 class="feature-title">Une puissance brute sous votre clavier.</h2>
+        <div class="specs-grid">
+            <div class="spec-card">
+                <span class="spec-val">4x</span>
+                <span class="spec-label">Slots M.2 NVMe</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-val">40 Gb/s</span>
+                <span class="spec-label">Thunderbolt 4 Pass-through</span>
+            </div>
+            <div class="spec-card">
+                <span class="spec-val">32 To</span>
+                <span class="spec-label">Capacité maximale</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section container">
+        <h2 class="feature-title">Prêt pour la production.</h2>
+        <p class="feature-desc" style="margin-bottom: 40px;">Nous finalisons le design du contrôleur PCIe. Rejoignez l'aventure sur Kickstarter.</p>
+        <a href="#" class="btn">S'inscrire pour le lancement</a>
+    </section>
+
+    <footer class="container">
+        <p>Copyright © 2026 Aurad0ck. Conçu pour MacBook Pro 14" et 16" (M1, M2, M3). MacBook Pro est une marque déposée d'Apple Inc.</p>
+        <p>Visuels générés par IA à des fins de concept. Le produit final peut varier.</p>
+    </footer>
 </body>
 </html>
