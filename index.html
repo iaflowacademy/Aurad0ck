@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurad0ck — L'extension de stockage ultime pour MacBook Pro</title>
+    <title>Aurad0ck — The Invisible Bottom Shell for MacBook Pro</title>
     <style>
         :root {
             --bg-color: #000000;
@@ -13,165 +13,147 @@
             --card-bg: #161617;
         }
         body {
-            font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         nav {
-            height: 52px;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(20px);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            border-bottom: 1px solid #333;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            height: 52px; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px);
+            position: sticky; top: 0; z-index: 999; border-bottom: 1px solid #333;
+            display: flex; align-items: center; justify-content: space-between;
         }
         nav .logo { font-weight: 600; font-size: 21px; }
         
-        header {
-            padding-top: 100px;
-            text-align: center;
-            min-height: 90vh;
-        }
-        h1 { font-size: 80px; font-weight: 600; margin-bottom: 0; letter-spacing: -0.015em; }
-        .hero-tagline { font-size: 32px; font-weight: 500; color: var(--text-color); margin-top: 10px; }
-        .hero-price { font-size: 24px; color: var(--gray-text); margin-top: 20px; }
+        header { padding-top: 80px; text-align: center; min-height: 80vh; }
+        h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 600; margin-bottom: 0; letter-spacing: -0.015em; }
+        .hero-tagline { font-size: clamp(20px, 4vw, 32px); font-weight: 500; color: var(--text-color); margin-top: 10px; }
         
-        .hero-image-container {
-            margin-top: 60px;
-            position: relative;
-        }
-        .hero-image {
-            width: 100%;
-            max-width: 1000px;
-            border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
+        .hero-image-container { margin-top: 60px; }
+        .hero-image { width: 100%; max-width: 1000px; border-radius: 20px; }
 
-        .section {
-            padding: 150px 0;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
+        .section { padding: 100px 0; border-bottom: 1px solid #1d1d1f; }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .feature-title { font-size: 48px; font-weight: 600; line-height: 1.1; margin-bottom: 20px; }
         .feature-desc { font-size: 21px; color: var(--gray-text); line-height: 1.5; }
 
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 80px;
-        }
-        .spec-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: left;
-        }
+        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px; }
+        .spec-card { background: var(--card-bg); padding: 40px; border-radius: 20px; }
         .spec-val { font-size: 40px; font-weight: 600; color: var(--accent-color); display: block; margin-bottom: 10px; }
-        .spec-label { font-size: 18px; font-weight: 500; }
-
-        .cta-section {
-            background: #111;
-            padding: 100px 0;
-            text-align: center;
-            border-radius: 40px;
-            margin: 100px 20px;
-        }
-        .btn {
-            background: var(--accent-color);
-            color: white;
-            padding: 18px 36px;
-            border-radius: 980px;
-            text-decoration: none;
-            font-size: 21px;
-            font-weight: 500;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        .btn:hover { transform: scale(1.05); }
-
-        footer {
-            padding: 50px 0;
-            border-top: 1px solid #333;
-            color: var(--gray-text);
-            font-size: 12px;
-            line-height: 1.5;
-        }
+        
+        .lang-switch { font-size: 12px; color: var(--gray-text); }
+        [data-i18n] { transition: opacity 0.2s; }
     </style>
 </head>
 <body>
     <nav>
-        <div class="container" style="display:flex; justify-content:space-between; width:100%;">
+        <div class="container" style="display:flex; justify-content:space-between; width:100%; align-items:center;">
             <span class="logo">Aurad0ck</span>
-            <div style="font-size: 12px; opacity: 0.8;">Bientôt sur Kickstarter</div>
+            <div class="lang-switch" id="lang-display">Detecting language...</div>
         </div>
     </nav>
 
     <header class="container">
-        <p style="color: #f5f5f7; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 10px;">PROJET AURAD0CK</p>
-        <h1>Le stockage. Sans limites.</h1>
-        <p class="hero-tagline">4 slots NVMe. Jusqu'à 32To. Design invisible.</p>
-        <p class="hero-price">À partir de 199$ en Early Bird.</p>
+        <p style="color: var(--accent-color); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 10px;" data-i18n="hero_pre">PROJECT AURAD0CK</p>
+        <h1 data-i18n="hero_title">Le stockage. Invisible.</h1>
+        <p class="hero-tagline" data-i18n="hero_tagline">Coque active 4x NVMe pour MacBook Pro.</p>
         <div class="hero-image-container">
-            <img src="aurad0ck-v2-4slots.png" alt="Aurad0ck 4x NVMe" class="hero-image">
+            <img src="aurad0ck-v2-4slots.png" alt="Aurad0ck" class="hero-image">
         </div>
     </header>
 
     <section class="section container">
-        <div class="grid">
+        <div class="feature-grid">
             <div>
-                <h2 class="feature-title">Oubliez les disques qui pendent.</h2>
-                <p class="feature-desc">Aurad0ck se clipse directement sous votre MacBook Pro. Pas de câbles encombrants, pas de risques de déconnexion accidentelle. Votre Mac reste un ordinateur portable, avec la capacité d'un serveur.</p>
+                <h2 class="feature-title" data-i18n="feat1_title">Une seconde peau thermique.</h2>
+                <p class="feature-desc" data-i18n="feat1_desc">Plus qu'une coque, Aurad0ck remplace ou complète votre base originale. Conçue en aluminium aéronautique, elle agit comme un dissipateur géant pour vos 4 SSD et votre Mac.</p>
             </div>
-            <div style="background: var(--card-bg); height: 400px; border-radius: 30px; display: flex; align-items: center; justify-content: center;">
-                <img src="aurad0ck-hero.png" alt="Détail design" style="height:80%; border-radius:15px;">
+            <div>
+                <img src="aurad0ck-hero.png" alt="Thermal Design" style="width:100%; border-radius:20px;">
             </div>
         </div>
     </section>
 
     <section class="section container" style="text-align:center;">
-        <h2 class="feature-title">Une puissance brute sous votre clavier.</h2>
+        <h2 class="feature-title" data-i18n="specs_title">Spécifications de classe mondiale.</h2>
         <div class="specs-grid">
             <div class="spec-card">
                 <span class="spec-val">4x</span>
-                <span class="spec-label">Slots M.2 NVMe</span>
+                <span class="spec-label" data-i18n="spec_slots">Slots M.2 NVMe</span>
             </div>
             <div class="spec-card">
-                <span class="spec-val">40 Gb/s</span>
-                <span class="spec-label">Thunderbolt 4 Pass-through</span>
+                <span class="spec-val">0mm</span>
+                <span class="spec-label" data-i18n="spec_cables">Câbles externes</span>
             </div>
             <div class="spec-card">
-                <span class="spec-val">32 To</span>
-                <span class="spec-label">Capacité maximale</span>
+                <span class="spec-val">CNC</span>
+                <span class="spec-label" data-i18n="spec_material">Aluminium massif</span>
             </div>
         </div>
     </section>
 
-    <section class="cta-section container">
-        <h2 class="feature-title">Prêt pour la production.</h2>
-        <p class="feature-desc" style="margin-bottom: 40px;">Nous finalisons le design du contrôleur PCIe. Rejoignez l'aventure sur Kickstarter.</p>
-        <a href="#" class="btn">S'inscrire pour le lancement</a>
-    </section>
+    <script>
+        const translations = {
+            fr: {
+                hero_pre: "PROJET AURAD0CK",
+                hero_title: "Le stockage. Invisible.",
+                hero_tagline: "Coque active 4x NVMe pour MacBook Pro.",
+                feat1_title: "Une seconde peau thermique.",
+                feat1_desc: "Plus qu'une coque, Aurad0ck remplace votre base originale. Conçue en aluminium aéronautique, elle agit comme un dissipateur géant pour vos 4 SSD et votre Mac.",
+                specs_title: "Spécifications de classe mondiale.",
+                spec_slots: "Slots M.2 NVMe",
+                spec_cables: "Câbles externes",
+                spec_material: "Aluminium massif"
+            },
+            en: {
+                hero_pre: "PROJECT AURAD0CK",
+                hero_title: "Storage. Invisible.",
+                hero_tagline: "4x NVMe Active Shell for MacBook Pro.",
+                feat1_title: "A Thermal Second Skin.",
+                feat1_desc: "More than a case, Aurad0ck replaces your original base. Machined from aerospace-grade aluminum, it acts as a giant heatsink for your 4 SSDs and your Mac.",
+                specs_title: "World-class Specifications.",
+                spec_slots: "M.2 NVMe Slots",
+                spec_cables: "External Cables",
+                spec_material: "Solid Aluminum"
+            },
+            es: {
+                hero_pre: "PROYECTO AURAD0CK",
+                hero_title: "Almacenamiento. Invisible.",
+                hero_tagline: "Carcasa activa 4x NVMe para MacBook Pro.",
+                feat1_title: "Una segunda piel térmica.",
+                feat1_desc: "Más que una carcasa, Aurad0ck reemplaza su base original. Diseñada en aluminio aeronáutico, actúa como un disipador gigante para sus 4 SSD y su Mac.",
+                specs_title: "Especificaciones de clase mundial.",
+                spec_slots: "Ranuras M.2 NVMe",
+                spec_cables: "Cables externos",
+                spec_material: "Aluminio macizo"
+            },
+            pt: {
+                hero_pre: "PROJETO AURAD0CK",
+                hero_title: "Armazenamento. Invisível.",
+                hero_tagline: "Capa ativa 4x NVMe para MacBook Pro.",
+                feat1_title: "Uma segunda pele térmica.",
+                feat1_desc: "Mais do que uma capa, a Aurad0ck substitui a sua base original. Fabricada em alumínio aeronáutico, funciona como um dissipador gigante para os seus 4 SSDs e para o seu Mac.",
+                specs_title: "Especificações de classe mundial.",
+                spec_slots: "Slots M.2 NVMe",
+                spec_cables: "Cabos externos",
+                spec_material: "Alumínio maciço"
+            }
+        };
 
-    <footer class="container">
-        <p>Copyright © 2026 Aurad0ck. Conçu pour MacBook Pro 14" et 16" (M1, M2, M3). MacBook Pro est une marque déposée d'Apple Inc.</p>
-        <p>Visuels générés par IA à des fins de concept. Le produit final peut varier.</p>
-    </footer>
+        function setLanguage(lang) {
+            const t = translations[lang] || translations.en;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerText = t[key];
+            });
+            document.getElementById('lang-display').innerText = lang.toUpperCase();
+        }
+
+        const userLang = navigator.language.substring(0, 2);
+        setLanguage(translations[userLang] ? userLang : 'en');
+    </script>
 </body>
 </html>
