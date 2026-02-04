@@ -41,11 +41,13 @@
         .feature-desc { font-size: 21px; color: var(--gray-text); line-height: 1.5; }
 
         .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px; }
-        .spec-card { background: var(--card-bg); padding: 40px; border-radius: 20px; }
+        .spec-card { background: var(--card-bg); padding: 40px; border-radius: 20px; text-align: left; }
         .spec-val { font-size: 40px; font-weight: 600; color: var(--accent-color); display: block; margin-bottom: 10px; }
         
         .lang-switch { font-size: 12px; color: var(--gray-text); }
         [data-i18n] { transition: opacity 0.2s; }
+
+        .technical-img { width: 100%; border-radius: 20px; margin-top: 40px; border: 1px solid #333; }
     </style>
 </head>
 <body>
@@ -69,11 +71,18 @@
         <div class="feature-grid">
             <div>
                 <h2 class="feature-title" data-i18n="feat1_title">Une seconde peau thermique.</h2>
-                <p class="feature-desc" data-i18n="feat1_desc">Plus qu'une coque, Aurad0ck remplace ou complète votre base originale. Conçue en aluminium aéronautique, elle agit comme un dissipateur géant pour vos 4 SSD et votre Mac.</p>
+                <p class="feature-desc" data-i18n="feat1_desc">Plus qu'une coque, Aurad0ck remplace votre base originale. Conçue en aluminium aéronautique, elle agit comme un dissipateur géant pour vos 4 SSD et votre Mac.</p>
             </div>
             <div>
-                <img src="aurad0ck-hero.png" alt="Thermal Design" style="width:100%; border-radius:20px;">
+                <img src="aurad0ck-technical-view.png" alt="Vue Technique" class="technical-img">
             </div>
+        </div>
+    </section>
+
+    <section class="section container">
+        <h2 class="feature-title" style="text-align:center;" data-i18n="versions_title">Choisissez votre performance.</h2>
+        <div class="specs-grid" id="product-grid">
+            <!-- Dynamic product cards -->
         </div>
     </section>
 
@@ -103,6 +112,7 @@
                 hero_tagline: "Coque active 4x NVMe pour MacBook Pro.",
                 feat1_title: "Une seconde peau thermique.",
                 feat1_desc: "Plus qu'une coque, Aurad0ck remplace votre base originale. Conçue en aluminium aéronautique, elle agit comme un dissipateur géant pour vos 4 SSD et votre Mac.",
+                versions_title: "Choisissez votre performance.",
                 specs_title: "Spécifications de classe mondiale.",
                 spec_slots: "Slots M.2 NVMe",
                 spec_cables: "Câbles externes",
@@ -114,6 +124,7 @@
                 hero_tagline: "4x NVMe Active Shell for MacBook Pro.",
                 feat1_title: "A Thermal Second Skin.",
                 feat1_desc: "More than a case, Aurad0ck replaces your original base. Machined from aerospace-grade aluminum, it acts as a giant heatsink for your 4 SSDs and your Mac.",
+                versions_title: "Choose your performance.",
                 specs_title: "World-class Specifications.",
                 spec_slots: "M.2 NVMe Slots",
                 spec_cables: "External Cables",
@@ -125,6 +136,7 @@
                 hero_tagline: "Carcasa activa 4x NVMe para MacBook Pro.",
                 feat1_title: "Una segunda piel térmica.",
                 feat1_desc: "Más que una carcasa, Aurad0ck reemplaza su base original. Diseñada en aluminio aeronáutico, actúa como un disipador gigante para sus 4 SSD y su Mac.",
+                versions_title: "Elija su rendimiento.",
                 specs_title: "Especificaciones de clase mundial.",
                 spec_slots: "Ranuras M.2 NVMe",
                 spec_cables: "Cables externos",
@@ -136,12 +148,32 @@
                 hero_tagline: "Capa ativa 4x NVMe para MacBook Pro.",
                 feat1_title: "Uma segunda pele térmica.",
                 feat1_desc: "Mais do que uma capa, a Aurad0ck substitui a sua base original. Fabricada em alumínio aeronáutico, funciona como um dissipador gigante para os seus 4 SSDs e para o seu Mac.",
+                versions_title: "Escolha o seu desempenho.",
                 specs_title: "Especificações de classe mundial.",
                 spec_slots: "Slots M.2 NVMe",
                 spec_cables: "Cabos externos",
                 spec_material: "Alumínio maciço"
             }
         };
+
+        const products = [
+            {
+                id: "silent",
+                name: "Aurad0ck Silent",
+                desc_fr: "Dissipation 100% passive via ailettes CNC. Silence absolu.",
+                desc_en: "100% passive dissipation via CNC fins. Absolute silence.",
+                desc_es: "Disipación 100% pasiva mediante aletas CNC. Silencio absoluto.",
+                desc_pt: "Dissipação 100% passiva através de aletas CNC. Silêncio absoluto."
+            },
+            {
+                id: "extreme",
+                name: "Aurad0ck Extreme",
+                desc_fr: "Refroidissement actif intelligent. Conçu pour le rendu 8K intensif.",
+                desc_en: "Smart active cooling. Built for intensive 8K rendering.",
+                desc_es: "Refrigeración activa inteligente. Diseñado para renderizado 8K intensivo.",
+                desc_pt: "Arrefecimento ativo inteligente. Construído para renderização 8K intensiva."
+            }
+        ];
 
         function setLanguage(lang) {
             const t = translations[lang] || translations.en;
@@ -150,6 +182,17 @@
                 el.innerText = t[key];
             });
             document.getElementById('lang-display').innerText = lang.toUpperCase();
+            
+            // Update product cards
+            const productGrid = document.getElementById('product-grid');
+            if(productGrid) {
+                productGrid.innerHTML = products.map(p => `
+                    <div class="spec-card">
+                        <span class="spec-val" style="font-size: 24px; color: white;">${p.name}</span>
+                        <p style="color: var(--gray-text); font-size: 16px; line-height: 1.4;">${p['desc_' + lang] || p.desc_en}</p>
+                    </div>
+                `).join('');
+            }
         }
 
         const userLang = navigator.language.substring(0, 2);
