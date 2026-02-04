@@ -32,8 +32,8 @@
         h1 { font-size: clamp(40px, 8vw, 80px); font-weight: 600; margin-bottom: 0; letter-spacing: -0.015em; }
         .hero-tagline { font-size: clamp(20px, 4vw, 32px); font-weight: 500; color: var(--text-color); margin-top: 10px; }
         
-        .hero-image-container { margin-top: 60px; }
-        .hero-image { width: 100%; max-width: 1000px; border-radius: 20px; }
+        .hero-image-container { margin-top: 60px; position: relative; }
+        .hero-image { width: 100%; max-width: 1000px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); }
 
         .section { padding: 100px 0; border-bottom: 1px solid #1d1d1f; }
         .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
@@ -48,6 +48,7 @@
         [data-i18n] { transition: opacity 0.2s; }
 
         .technical-img { width: 100%; border-radius: 20px; margin-top: 40px; border: 1px solid #333; }
+        .full-width-img { width: 100%; height: auto; border-radius: 30px; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -63,7 +64,7 @@
         <h1 data-i18n="hero_title">Le stockage. Invisible.</h1>
         <p class="hero-tagline" data-i18n="hero_tagline">Coque active 4x NVMe pour MacBook Pro.</p>
         <div class="hero-image-container">
-            <img src="aurad0ck-v2-4slots.png" alt="Aurad0ck" class="hero-image">
+            <img src="aurad0ck-perfect-integration.png" alt="Aurad0ck Integration" class="hero-image">
         </div>
     </header>
 
@@ -102,6 +103,7 @@
                 <span class="spec-label" data-i18n="spec_material">Aluminium massif</span>
             </div>
         </div>
+        <img src="aurad0ck-v2-4slots.png" alt="Aurad0ck V2" class="full-width-img">
     </section>
 
     <script>
